@@ -11,19 +11,27 @@ body {
   overflow: hidden;
 }
 
-/* background bendera animasi */
+/* background bendera */
 .bg {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: linear-gradient(red 50%, white 50%);
-  animation: wave 5s infinite ease-in-out;
+  background: linear-gradient(180deg, #d40000 50%, #ffffff 50%);
+  animation: wave 6s ease-in-out infinite;
 }
 
 @keyframes wave {
-  0% {transform: scale(1) translateY(0);}
-  50% {transform: scale(1.02) translateY(-10px);}
-  100% {transform: scale(1) translateY(0);}
+  0% {transform: scale(1);}
+  50% {transform: scale(1.03);}
+  100% {transform: scale(1);}
+}
+
+/* overlay gelap biar estetik */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
 }
 
 /* isi tengah */
@@ -34,43 +42,59 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: white;
 }
 
 .card {
-  background: rgba(0,0,0,0.3);
-  padding: 40px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
+  text-align: center;
+  color: white;
   max-width: 500px;
+  animation: fadeUp 2s ease;
+}
+
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(40px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 h1 {
-  font-size: 40px;
-  letter-spacing: 3px;
+  font-size: 42px;
+  letter-spacing: 4px;
 }
 
-p {
+.main-text {
   margin-top: 15px;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-/* kiri kanan gambar */
+.from {
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* gambar kiri kanan */
 .side {
   position: absolute;
   bottom: 0;
-  height: 80%;
+  height: 85%;
   opacity: 0.9;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+  100% {transform: translateY(0);}
 }
 
 .left {
-  left: 20px;
+  left: 0;
   transform: scaleX(-1);
 }
 
 .right {
-  right: 20px;
+  right: 0;
 }
 </style>
 </head>
@@ -78,23 +102,32 @@ p {
 <body>
 
 <div class="bg"></div>
+<div class="overlay"></div>
 
-<!-- gambar kiri kanan -->
+<!-- gambar -->
 <img src="cowok.png" class="side left">
 <img src="cewek.png" class="side right">
 
 <div class="container">
   <div class="card">
     <h1>paskibra 2025</h1>
-    <p>langkah tegap, hati mantap</p>
-    <p>mengabdi untuk merah putih 🇮🇩</p>
-    <p style="margin-top:20px; font-size:14px; opacity:0.8;">
-      dari aku: bangga banget sama kamu, terus jadi yang terbaik yaa 🤍
-    </p>
+
+    <div class="main-text">
+      hari ini bukan cuma tentang lolos,<br>
+      tapi tentang perjuangan yang akhirnya sampai.<br><br>
+
+      kamu hebat, kamu kuat,<br>
+      dan kamu pantas ada di posisi ini 🇮🇩
+    </div>
+
+    <div class="from">
+      dari aku:<br>
+      bangga banget sama kamu, serius.<br>
+      jangan pernah ngerasa usaha kamu sia-sia yaa 🤍
+    </div>
   </div>
 </div>
 
-<!-- musik -->
 <audio autoplay loop>
   <source src="lagu.mp3" type="audio/mpeg">
 </audio>
