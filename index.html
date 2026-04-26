@@ -11,84 +11,110 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   background: linear-gradient(to bottom, #8b0000, #ffffff);
   overflow: hidden;
 }
 
-/* efek glow */
-body::before {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: rgba(255,255,255,0.2);
-  filter: blur(120px);
-  top: 20%;
+/* bendera kecil animasi */
+.flag {
+  width: 50px;
+  height: 30px;
+  position: relative;
+  animation: swing 2s infinite ease-in-out;
+  margin-top: 20px;
 }
 
-/* card tengah */
+.flag::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: red;
+  top: 0;
+}
+
+.flag::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: white;
+  bottom: 0;
+}
+
+@keyframes swing {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(5deg);}
+  100% {transform: rotate(0deg);}
+}
+
+/* teks tengah */
 .card {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 25px;
-  padding: 40px;
   text-align: center;
   color: white;
-  max-width: 400px;
+  padding: 20px;
+  max-width: 350px;
   animation: fade 2s ease;
 }
 
 @keyframes fade {
-  from {opacity:0; transform: translateY(30px);}
+  from {opacity:0; transform: translateY(20px);}
   to {opacity:1; transform: translateY(0);}
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  letter-spacing: 2px;
+  font-size: 34px;
 }
 
 p {
   font-family: 'Poppins', sans-serif;
-  margin-top: 15px;
-  line-height: 1.6;
   font-size: 15px;
+  line-height: 1.6;
+  margin-top: 10px;
 }
 
-/* garis elegan */
-.line {
-  width: 50px;
-  height: 2px;
-  background: white;
-  margin: 15px auto;
-  opacity: 0.7;
+/* glow bawah */
+.glow {
+  width: 200px;
+  height: 200px;
+  background: rgba(255,255,255,0.2);
+  filter: blur(100px);
+  margin-bottom: 30px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- atas -->
+<div class="flag"></div>
+
+<!-- tengah -->
 <div class="card">
   <h1>paskibra 2025</h1>
-  <div class="line"></div>
 
   <p>
     ini bukan sekadar lolos,<br>
     tapi bukti kalau kamu benar-benar berjuang.<br><br>
 
-    aku tahu kamu capek, aku tahu kamu usaha.<br>
-    dan akhirnya… kamu sampai di sini.
+    aku tahu kamu capek, aku tahu kamu usaha,<br>
+    dan akhirnya… kamu sampai di sini 🇮🇩
   </p>
 
-  <p style="margin-top:25px; opacity:0.8;">
+  <p style="margin-top:20px; opacity:0.8;">
     dari aku:<br>
-    bangga banget sama kamu.<br>
-    jangan pernah ragu sama diri kamu lagi ya 🤍
+    bangga banget sama kamu,<br>
+    jangan pernah ragu sama diri kamu ya 🤍
   </p>
 </div>
+
+<!-- bawah -->
+<div class="flag"></div>
+<div class="glow"></div>
 
 <audio autoplay loop>
   <source src="lagu.mp3" type="audio/mpeg">
