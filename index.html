@@ -2,130 +2,92 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>paskibra moment</title>
+<title>for you</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap');
+
 body {
   margin: 0;
-  font-family: 'poppins', sans-serif;
-  overflow: hidden;
-}
-
-/* background bendera */
-.bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #d40000 50%, #ffffff 50%);
-  animation: wave 6s ease-in-out infinite;
-}
-
-@keyframes wave {
-  0% {transform: scale(1);}
-  50% {transform: scale(1.03);}
-  100% {transform: scale(1);}
-}
-
-/* overlay gelap biar estetik */
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-}
-
-/* isi tengah */
-.container {
-  position: relative;
-  z-index: 2;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(to bottom, #8b0000, #ffffff);
+  overflow: hidden;
 }
 
+/* efek glow */
+body::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,255,0.2);
+  filter: blur(120px);
+  top: 20%;
+}
+
+/* card tengah */
 .card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 40px;
   text-align: center;
   color: white;
-  max-width: 500px;
-  animation: fadeUp 2s ease;
+  max-width: 400px;
+  animation: fade 2s ease;
 }
 
-@keyframes fadeUp {
-  from {opacity: 0; transform: translateY(40px);}
-  to {opacity: 1; transform: translateY(0);}
+@keyframes fade {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
 }
 
 h1 {
-  font-size: 42px;
-  letter-spacing: 4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  letter-spacing: 2px;
 }
 
-.main-text {
+p {
+  font-family: 'Poppins', sans-serif;
   margin-top: 15px;
-  font-size: 18px;
   line-height: 1.6;
+  font-size: 15px;
 }
 
-.from {
-  margin-top: 30px;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* gambar kiri kanan */
-.side {
-  position: absolute;
-  bottom: 0;
-  height: 85%;
-  opacity: 0.9;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% {transform: translateY(0);}
-  50% {transform: translateY(-10px);}
-  100% {transform: translateY(0);}
-}
-
-.left {
-  left: 0;
-  transform: scaleX(-1);
-}
-
-.right {
-  right: 0;
+/* garis elegan */
+.line {
+  width: 50px;
+  height: 2px;
+  background: white;
+  margin: 15px auto;
+  opacity: 0.7;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-<div class="overlay"></div>
+<div class="card">
+  <h1>paskibra 2025</h1>
+  <div class="line"></div>
 
-<!-- gambar -->
-<img src="cowok.png" class="side left">
-<img src="cewek.png" class="side right">
+  <p>
+    ini bukan sekadar lolos,<br>
+    tapi bukti kalau kamu benar-benar berjuang.<br><br>
 
-<div class="container">
-  <div class="card">
-    <h1>paskibra 2025</h1>
+    aku tahu kamu capek, aku tahu kamu usaha.<br>
+    dan akhirnya… kamu sampai di sini.
+  </p>
 
-    <div class="main-text">
-      hari ini bukan cuma tentang lolos,<br>
-      tapi tentang perjuangan yang akhirnya sampai.<br><br>
-
-      kamu hebat, kamu kuat,<br>
-      dan kamu pantas ada di posisi ini 🇮🇩
-    </div>
-
-    <div class="from">
-      dari aku:<br>
-      bangga banget sama kamu, serius.<br>
-      jangan pernah ngerasa usaha kamu sia-sia yaa 🤍
-    </div>
-  </div>
+  <p style="margin-top:25px; opacity:0.8;">
+    dari aku:<br>
+    bangga banget sama kamu.<br>
+    jangan pernah ragu sama diri kamu lagi ya 🤍
+  </p>
 </div>
 
 <audio autoplay loop>
