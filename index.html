@@ -5,147 +5,166 @@
 <title>for you</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  height: 100vh;
-  background: #f5c86a;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'poppins', sans-serif;
 }
 
-/* atas */
-.top {
-  text-align: center;
-  margin-top: 20px;
-  animation: fadeDown 1.5s ease;
+/* background */
+body{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(to bottom, #ffffff 0%, #f3f3f3 100%);
+  overflow:hidden;
 }
 
-@keyframes fadeDown {
-  from {opacity:0; transform: translateY(-30px);}
-  to {opacity:1; transform: translateY(0);}
+/* bendera atas */
+.flag-top{
+  width:100%;
+  height:120px;
+  background:linear-gradient(red 50%, white 50%);
+  animation:wave 3s ease-in-out infinite;
 }
 
-/* tengah */
-.center {
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  padding: 30px;
-  width: 80%;
-  max-width: 350px;
-  text-align: center;
-  animation: fadeUp 2s ease;
+/* bendera bawah */
+.flag-bottom{
+  width:100%;
+  height:120px;
+  background:linear-gradient(red 50%, white 50%);
+  animation:wave 3s ease-in-out infinite reverse;
 }
 
-@keyframes fadeUp {
-  from {opacity:0; transform: translateY(40px);}
-  to {opacity:1; transform: translateY(0);}
+/* animasi gelombang */
+@keyframes wave{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(8px);}
+  100%{transform:translateY(0);}
 }
 
-h1 {
-  font-size: 28px;
-  margin-bottom: 15px;
+/* container tengah */
+.content{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  text-align:center;
 }
 
-p {
-  font-size: 14px;
-  line-height: 1.6;
+/* judul atas */
+.title{
+  font-weight:600;
+  margin-bottom:15px;
+  font-size:18px;
 }
 
-/* bawah */
-.bottom {
-  margin-bottom: 40px;
-  text-align: center;
+/* card */
+.card{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(10px);
+  padding:25px;
+  border-radius:20px;
+  width:260px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  animation:fadeUp 1s ease;
 }
 
-/* bendera berkibar */
-.flag {
-  width: 120px;
-  height: 80px;
-  position: relative;
-  overflow: hidden;
-  margin: auto;
+/* animasi masuk */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-.flag .wave {
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(red 50%, white 50%);
-  animation: wave 2s infinite linear;
+.card h1{
+  font-size:20px;
+  margin-bottom:10px;
 }
 
-@keyframes wave {
-  0% {transform: translateX(0);}
-  100% {transform: translateX(-50%);}
+.card p{
+  font-size:13px;
+  margin-bottom:8px;
+  color:#333;
 }
 
-/* efek gelombang tambahan */
-.flag::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0.2), transparent);
-  animation: shine 2s infinite;
+/* bendera kecil gerak */
+.small-flag{
+  margin-top:10px;
+  font-size:20px;
+  animation:shake 1.5s infinite;
 }
 
-@keyframes shine {
-  0% {opacity:0;}
-  50% {opacity:0.3;}
-  100% {opacity:0;}
+@keyframes shake{
+  0%{transform:rotate(0deg);}
+  25%{transform:rotate(5deg);}
+  50%{transform:rotate(0deg);}
+  75%{transform:rotate(-5deg);}
+  100%{transform:rotate(0deg);}
+}
+
+/* ilustrasi atas bawah */
+.top-img, .bottom-img{
+  width:100%;
+  max-width:280px;
+  opacity:0.9;
+}
+
+.top-wrap{
+  position:absolute;
+  top:80px;
+}
+
+.bottom-wrap{
+  position:absolute;
+  bottom:80px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- atas -->
-<div class="top">
-  <h2>🇮🇩 paskibra 2025 🇮🇩</h2>
+<div class="flag-top"></div>
+
+<!-- ilustrasi atas -->
+<div class="top-wrap">
+  <img src="https://i.ibb.co/3m7J9Yp/paskibra-top.png" class="top-img">
 </div>
 
 <!-- tengah -->
-<div class="center">
-  <h1>kata kata</h1>
+<div class="content">
+  <div class="title">🇮🇩 paskibra 2025 🇮🇩</div>
 
-  <p>
-    ini bukan sekadar lolos,<br>
-    tapi bukti kalau kamu benar-benar berjuang.<br><br>
+  <div class="card">
+    <h1>kata kata</h1>
+    <p>ini bukan sekadar lolos,</p>
+    <p>tapi bukti kalau kamu benar-benar berjuang.</p>
 
-    aku tahu kamu capek, aku tahu kamu usaha,<br>
-    dan akhirnya… kamu sampai di sini.
-  </p>
+    <p>aku tahu kamu capek, aku tahu kamu usaha,</p>
+    <p>dan akhirnya... kamu sampai di sini.</p>
 
-  <p style="margin-top:15px;">
-    dari aku:<br>
-    bangga banget sama kamu 🤍
-    fkfkdkkdkfkf
-    fkfooroooelr
-    longgggggg texttttttt
-    longgggggg texttttttt
-    longgggggg texttttttt
-    longgggggg texttttttt
-    longgggggg texttttttt
-    longgggggg texttttttt
-  </p>
-</div>
+    <br>
+    <p>dari aku:</p>
+    <p>bangga banget sama kamu,</p>
+    <p>jangan pernah ragu sama diri kamu lagi ya</p>
 
-<!-- bawah -->
-<div class="bottom">
-  <div class="flag">
-    <div class="wave"></div>
+    <div class="small-flag">🇮🇩</div>
   </div>
 </div>
 
-<audio autoplay loop>
-  <source src="lagu.mp3" type="audio/mpeg">
-</audio>
+<!-- ilustrasi bawah -->
+<div class="bottom-wrap">
+  <img src="https://i.ibb.co/8Xr0v3g/paskibra-bottom.png" class="bottom-img">
+</div>
+
+<div class="flag-bottom"></div>
 
 </body>
 </html>
