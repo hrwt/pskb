@@ -5,85 +5,100 @@
 <title>for you</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
 
 body {
   margin: 0;
+  font-family: 'Poppins', sans-serif;
   height: 100vh;
+  background: #f5c86a;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to bottom, #8b0000, #ffffff);
   overflow: hidden;
 }
 
-/* bendera kecil animasi */
-.flag {
-  width: 50px;
-  height: 30px;
-  position: relative;
-  animation: swing 2s infinite ease-in-out;
-  margin-top: 20px;
-}
-
-.flag::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  background: red;
-  top: 0;
-}
-
-.flag::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  background: white;
-  bottom: 0;
-}
-
-@keyframes swing {
-  0% {transform: rotate(0deg);}
-  50% {transform: rotate(5deg);}
-  100% {transform: rotate(0deg);}
-}
-
-/* teks tengah */
-.card {
+/* atas */
+.top {
   text-align: center;
-  color: white;
-  padding: 20px;
-  max-width: 350px;
-  animation: fade 2s ease;
+  margin-top: 20px;
+  animation: fadeDown 1.5s ease;
 }
 
-@keyframes fade {
-  from {opacity:0; transform: translateY(20px);}
+@keyframes fadeDown {
+  from {opacity:0; transform: translateY(-30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* tengah */
+.center {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 30px;
+  width: 80%;
+  max-width: 350px;
+  text-align: center;
+  animation: fadeUp 2s ease;
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform: translateY(40px);}
   to {opacity:1; transform: translateY(0);}
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 34px;
+  font-size: 28px;
+  margin-bottom: 15px;
 }
 
 p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
-  margin-top: 10px;
 }
 
-/* glow bawah */
-.glow {
-  width: 200px;
-  height: 200px;
-  background: rgba(255,255,255,0.2);
-  filter: blur(100px);
-  margin-bottom: 30px;
+/* bawah */
+.bottom {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* bendera berkibar */
+.flag {
+  width: 120px;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+.flag .wave {
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(red 50%, white 50%);
+  animation: wave 2s infinite linear;
+}
+
+@keyframes wave {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-50%);}
+}
+
+/* efek gelombang tambahan */
+.flag::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.2), transparent);
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {opacity:0;}
+  50% {opacity:0.3;}
+  100% {opacity:0;}
 }
 </style>
 </head>
@@ -91,30 +106,42 @@ p {
 <body>
 
 <!-- atas -->
-<div class="flag"></div>
+<div class="top">
+  <h2>🇮🇩 paskibra 2025 🇮🇩</h2>
+</div>
 
 <!-- tengah -->
-<div class="card">
-  <h1>paskibra 2025</h1>
+<div class="center">
+  <h1>kata kata</h1>
 
   <p>
     ini bukan sekadar lolos,<br>
     tapi bukti kalau kamu benar-benar berjuang.<br><br>
 
     aku tahu kamu capek, aku tahu kamu usaha,<br>
-    dan akhirnya… kamu sampai di sini 🇮🇩
+    dan akhirnya… kamu sampai di sini.
   </p>
 
-  <p style="margin-top:20px; opacity:0.8;">
+  <p style="margin-top:15px;">
     dari aku:<br>
-    bangga banget sama kamu,<br>
-    jangan pernah ragu sama diri kamu ya 🤍
+    bangga banget sama kamu 🤍
+    fkfkdkkdkfkf
+    fkfooroooelr
+    longgggggg texttttttt
+    longgggggg texttttttt
+    longgggggg texttttttt
+    longgggggg texttttttt
+    longgggggg texttttttt
+    longgggggg texttttttt
   </p>
 </div>
 
 <!-- bawah -->
-<div class="flag"></div>
-<div class="glow"></div>
+<div class="bottom">
+  <div class="flag">
+    <div class="wave"></div>
+  </div>
+</div>
 
 <audio autoplay loop>
   <source src="lagu.mp3" type="audio/mpeg">
