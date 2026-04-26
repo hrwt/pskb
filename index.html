@@ -1,70 +1,103 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>paskibra moment</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'poppins', sans-serif;
-      background: linear-gradient(to bottom, red 50%, white 50%);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+<meta charset="UTF-8">
+<title>paskibra moment</title>
 
-    .card {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
-      color: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'poppins', sans-serif;
+  overflow: hidden;
+}
 
-    h1 {
-      margin: 0;
-      font-size: 28px;
-      letter-spacing: 2px;
-    }
+/* background bendera animasi */
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(red 50%, white 50%);
+  animation: wave 5s infinite ease-in-out;
+}
 
-    p {
-      margin-top: 15px;
-      font-size: 16px;
-      opacity: 0.9;
-    }
+@keyframes wave {
+  0% {transform: scale(1) translateY(0);}
+  50% {transform: scale(1.02) translateY(-10px);}
+  100% {transform: scale(1) translateY(0);}
+}
 
-    .flag {
-      width: 60px;
-      height: 40px;
-      margin: 20px auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
+/* isi tengah */
+.container {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
 
-    .red {
-      background: red;
-      height: 50%;
-    }
+.card {
+  background: rgba(0,0,0,0.3);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+}
 
-    .white {
-      background: white;
-      height: 50%;
-    }
-  </style>
+h1 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+
+p {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+/* kiri kanan gambar */
+.side {
+  position: absolute;
+  bottom: 0;
+  height: 80%;
+  opacity: 0.9;
+}
+
+.left {
+  left: 20px;
+  transform: scaleX(-1);
+}
+
+.right {
+  right: 20px;
+}
+</style>
 </head>
+
 <body>
 
+<div class="bg"></div>
+
+<!-- gambar kiri kanan -->
+<img src="cowok.png" class="side left">
+<img src="cewek.png" class="side right">
+
+<div class="container">
   <div class="card">
-    <div class="flag">
-      <div class="red"></div>
-      <div class="white"></div>
-    </div>
     <h1>paskibra 2025</h1>
     <p>langkah tegap, hati mantap</p>
-    <p>untuk indonesia 🇮🇩</p>
+    <p>mengabdi untuk merah putih 🇮🇩</p>
+    <p style="margin-top:20px; font-size:14px; opacity:0.8;">
+      dari aku: bangga banget sama kamu, terus jadi yang terbaik yaa 🤍
+    </p>
   </div>
+</div>
+
+<!-- musik -->
+<audio autoplay loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
